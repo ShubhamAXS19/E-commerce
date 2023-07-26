@@ -1,10 +1,9 @@
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -31,7 +30,7 @@ import AdminProductFormPage from './pages/AdminProductFormPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
-import StripeCheckout from './pages/StripeCheckout';
+// import StripeCheckout from './pages/StripeCheckout';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 
 const options = {
@@ -148,7 +147,7 @@ const router = createBrowserRouter([
     path: '/stripe-checkout/',
     element: (
       <Protected>
-        <StripeCheckout></StripeCheckout>
+        {/* <StripeCheckout></StripeCheckout> */}
       </Protected>
     ),
   },
