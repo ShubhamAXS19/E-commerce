@@ -1,9 +1,10 @@
+import { Request,Response } from "express";
 const { Order } = require("../model/Order");
 const { Product } = require("../model/Product");
 const { User } = require("../model/User");
 const { sendMail, invoiceTemplate } = require("../services/common");
 
-exports.fetchOrdersByUser = async (req, res) => {
+exports.fetchOrdersByUser = async (req:Request, res:Response) => {
     const { id } = req.user;
     try {
         const orders = await Order.find({ user: id });
@@ -14,7 +15,7 @@ exports.fetchOrdersByUser = async (req, res) => {
     }
 };
 
-exports.createOrder = async (req, res) => {
+exports.createOrder = async (req:Request, res:Response) => {
     const order = new Order(req.body);
     // here we have to update stocks;
 
@@ -37,7 +38,7 @@ exports.createOrder = async (req, res) => {
     }
 };
 
-exports.deleteOrder = async (req, res) => {
+exports.deleteOrder = async (req:Request, res:Response) => {
     const { id } = req.params;
     try {
         const order = await Order.findByIdAndDelete(id);
@@ -47,7 +48,7 @@ exports.deleteOrder = async (req, res) => {
     }
 };
 
-exports.updateOrder = async (req, res) => {
+exports.updateOrder = async (req:Request, res:Response) => {
     const { id } = req.params;
     try {
         const order = await Order.findByIdAndUpdate(id, req.body, {
@@ -59,7 +60,7 @@ exports.updateOrder = async (req, res) => {
     }
 };
 
-exports.fetchAllOrders = async (req, res) => {
+exports.fetchAllOrders = async (req:Request, res:Response) => {
     // sort = {_sort:"price",_order="desc"}
     // pagination = {_page:1,_limit=10}
     let query = Order.find({ deleted: { $ne: true } });

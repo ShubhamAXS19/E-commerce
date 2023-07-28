@@ -1,9 +1,10 @@
+import { Request,Response } from "express";
 const { User } = require('../model/User');
 const crypto = require('crypto');
 const { sanitizeUser, sendMail } = require('../services/common');
 const jwt = require('jsonwebtoken');
 
-exports.createUser = async (req, res) => {
+exports.createUser = async (req:Request, res:Response) => {
     try {
         const salt = crypto.randomBytes(16);
         crypto.pbkdf2(
@@ -12,11 +13,11 @@ exports.createUser = async (req, res) => {
             310000,
             32,
             'sha256',
-            async function (err, hashedPassword) {
+            async function (err:any, hashedPassword:string) {
                 const user = new User({ ...req.body, password: hashedPassword, salt });
                 const doc = await user.save();
 
-                req.login(sanitizeUser(doc), (err) => {
+                req.login(sanitizeUser(doc), (err:any) => {
                     // this also calls serializer and adds to session
                     if (err) {
                         res.status(400).json(err);
@@ -41,7 +42,7 @@ exports.createUser = async (req, res) => {
     }
 };
 
-exports.loginUser = async (req, res) => {
+exports.loginUser = async (req:Request, res:Response) => {
     const user = req.user;
     res
         .cookie('jwt', user.token, {
@@ -52,7 +53,7 @@ exports.loginUser = async (req, res) => {
         .json({ id: user.id, role: user.role });
 };
 
-exports.logout = async (req, res) => {
+exports.logout = async (req:Request, res:Response) => {
     res
         .cookie('jwt', null, {
             expires: new Date(Date.now()),
@@ -61,7 +62,7 @@ exports.logout = async (req, res) => {
         .sendStatus(200)
 };
 
-exports.checkAuth = async (req, res) => {
+exports.checkAuth = async (req:Request, res:Response) => {
     if (req.user) {
         res.json(req.user);
     } else {
@@ -69,7 +70,7 @@ exports.checkAuth = async (req, res) => {
     }
 };
 
-exports.resetPasswordRequest = async (req, res) => {
+exports.resetPasswordRequest = async (req:Request, res:Response) => {
     const email = req.body.email;
     const user = await User.findOne({ email: email });
     if (user) {
@@ -96,7 +97,7 @@ exports.resetPasswordRequest = async (req, res) => {
     }
 };
 
-exports.resetPassword = async (req, res) => {
+exports.resetPassword = async (req:Request, res:Response) => {
     const { email, password, token } = req.body;
 
     const user = await User.findOne({ email: email, resetPasswordToken: token });
@@ -108,7 +109,7 @@ exports.resetPassword = async (req, res) => {
             310000,
             32,
             'sha256',
-            async function (err, hashedPassword) {
+            async function (err:any, hashedPassword:string) {
                 user.password = hashedPassword;
                 user.salt = salt;
                 await user.save();

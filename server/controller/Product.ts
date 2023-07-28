@@ -1,6 +1,7 @@
+import { Request,Response } from "express";
 const { Product } = require('../model/Product');
 
-exports.createProduct = async (req, res) => {
+exports.createProduct = async (req:Request, res:Response) => {
     // this product we have to get from API body
     const product = new Product(req.body);
     product.discountPrice = Math.round(product.price * (1 - product.discountPercentage / 100))
@@ -12,7 +13,7 @@ exports.createProduct = async (req, res) => {
     }
 };
 
-exports.fetchAllProducts = async (req, res) => {
+exports.fetchAllProducts = async (req:Request, res:Response) => {
     // filter = {"category":["smartphone","laptops"]}
     // sort = {_sort:"price",_order="desc"}
     // pagination = {_page:1,_limit=10}
@@ -58,7 +59,7 @@ exports.fetchAllProducts = async (req, res) => {
     }
 };
 
-exports.fetchProductById = async (req, res) => {
+exports.fetchProductById = async (req:Request, res:Response) => {
     const { id } = req.params;
 
     try {
@@ -69,7 +70,7 @@ exports.fetchProductById = async (req, res) => {
     }
 };
 
-exports.updateProduct = async (req, res) => {
+exports.updateProduct = async (req:Request, res:Response) => {
     const { id } = req.params;
     try {
         const product = await Product.findByIdAndUpdate(id, req.body, { new: true });

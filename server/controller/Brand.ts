@@ -1,6 +1,7 @@
+import { Request,Response } from "express";
 const { Brand } = require('../model/Brand');
 
-exports.fetchBrands = async (req, res) => {
+exports.fetchBrands = async (req:Request, res:Response) => {
   try {
     const brands = await Brand.find({}).exec();
     res.status(200).json(brands);
@@ -9,7 +10,7 @@ exports.fetchBrands = async (req, res) => {
   }
 };
 
-exports.createBrand = async (req, res) => {
+exports.createBrand = async (req:Request, res:Response) => {
   const brand = new Brand(req.body);
   try {
     const doc = await brand.save();

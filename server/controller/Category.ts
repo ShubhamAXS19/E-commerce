@@ -1,6 +1,7 @@
+import { Request,Response } from "express";
 const { Category } = require('../model/Category');
 
-exports.fetchCategories = async (req, res) => {
+exports.fetchCategories = async (req:Request, res:Response) => {
     try {
         const categories = await Category.find({}).exec();
         res.status(200).json(categories);
@@ -9,7 +10,7 @@ exports.fetchCategories = async (req, res) => {
     }
 };
 
-exports.createCategory = async (req, res) => {
+exports.createCategory = async (req:Request, res:Response) => {
     const category = new Category(req.body);
     try {
         const doc = await category.save();
