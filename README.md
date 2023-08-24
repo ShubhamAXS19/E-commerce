@@ -69,8 +69,42 @@ npm start
 
 
 ### Project Structure
+```
+Server <br/>
+| --> controllers <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp; &nbsp;  | --> Auth.js <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> brand.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> cart.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> category.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> order.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> product.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> user.js <br/>
+| --> models<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp; &nbsp;  | --> Auth.js <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> brand.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> cart.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> category.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> order.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> product.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> user.js <br/>
+| --> routes <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp; &nbsp;  | --> Auth.js <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> brand.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> cart.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> category.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> order.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  | --> product.js<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> user.js <br/>
+| --> package.json<br/>
+| --> package-lock.json<br/>
+```
 
-
-
-
+Client <br/>
+| --> public  <br/>
+| --> src <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> app 
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> pages
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> features
+| --> package.json<br/> <br/>
+| --> package-lock.json<br/>
 
