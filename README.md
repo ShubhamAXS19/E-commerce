@@ -69,7 +69,6 @@ npm start
 
 
 ### Project Structure
-```
 Server <br/>
 | --> controllers <br/>
 |&nbsp;   &nbsp;   &nbsp;  &nbsp; &nbsp;  | --> Auth.js <br/>
@@ -97,14 +96,13 @@ Server <br/>
 |&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; | --> user.js <br/>
 | --> package.json<br/>
 | --> package-lock.json<br/>
-```
 
 Client <br/>
 | --> public  <br/>
 | --> src <br/>
-|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> app 
-|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> pages
-|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> features
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> app <br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> pages<br/>
+|&nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp; --> features<br/>
 | --> package.json<br/> <br/>
 | --> package-lock.json<br/>
 
