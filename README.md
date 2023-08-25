@@ -34,7 +34,7 @@ cd server
 npm install
 ```
 
-### Setting up environment variables:
+### 4. Setting up environment variables:
 
 For the server, inside the server directory, create a .env file with the following:
 
@@ -44,7 +44,7 @@ JWT_SECRET=your_jwt_secret <br/>
 STRIPE_SECRET_KEY=your_stripe_secret_key <br/>
 ```
 
-### Running the project:
+### 5. Running the project:
 
 Server:
 From the server directory:
@@ -52,15 +52,19 @@ From the server directory:
 ```
 npm run start
 ```
-
-Client:
-From the client directory:
-
+Visit <br/>
 ```
-npm start
+http://localhost:8080
 ```
 
-### Features
+### 6. For Documentation
+Visit <br/>
+
+```
+http://localhost:8080/docs
+```
+
+### 7. Features
 1. User authentication using JWT & Passport. <br/>
 2. Browse products, add to cart, and make purchases using Stripe. <br/>
 3. Admin panel to manage products.<br/>
@@ -68,7 +72,7 @@ npm start
 5. Powerful state management using Redux.<br/>
 
 
-### Project Structure
+### 8. Project Structure
 Server <br/>
 | --> controllers <br/>
 |&nbsp;   &nbsp;   &nbsp;  &nbsp; &nbsp;  | --> Auth.js <br/>
