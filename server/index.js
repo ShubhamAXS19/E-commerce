@@ -24,6 +24,7 @@ const { isAuth, sanitizeUser, cookieExtractor } = require('./services/common');
 const path = require('path');
 const { Order } = require('./model/Order');
 const { env } = require('process');
+const { swaggerDocs } = require('./services/swagger');
 
 // Webhook
 
@@ -209,4 +210,5 @@ async function main() {
 
 server.listen(process.env.PORT, () => {
     console.log('server started');
+    swaggerDocs(server, process.env.PORT);
 });
