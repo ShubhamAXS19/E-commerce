@@ -1,6 +1,22 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+/**
+ * @openapi
+ * components
+ *  schema
+ *      createBrandSchema:
+ *          type: object
+ *          required
+ *              -label
+ *              -value
+ *          properties:
+ *              label:
+ *                  type:string
+ *              value:
+ *                  type:string
+ */
+
 const brandSchema = new Schema({
     label: {
         type: String,

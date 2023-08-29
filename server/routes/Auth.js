@@ -9,6 +9,8 @@ router
      *  @openapi
      * /auth/signup:
      * post:
+     *  tag:
+     * -Auth
      * summary: Signup
      * description: Signup
      * requestBody:
