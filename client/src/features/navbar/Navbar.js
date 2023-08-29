@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectItems } from '../cart/cartSlice';
 import { selectLoggedInUser } from '../auth/authSlice';
 import { selectUserInfo } from '../user/userSlice';
-
+import Logo from '../../../src/img/mainlogo.png';
 
 const navigation = [
     { name: 'Products', link: '/', user: true },
@@ -45,7 +45,7 @@ function NavBar({ children }) {
                                             <Link to="/">
                                                 <img
                                                     className="h-8 w-8"
-                                                    src="/ecommerce.png"
+                                                    src={Logo}
                                                     alt="Your Company"
                                                 />
                                             </Link>
