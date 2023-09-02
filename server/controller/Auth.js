@@ -126,3 +126,38 @@ exports.resetPassword = async (req, res) => {
         res.sendStatus(400);
     }
 };
+
+exports.updateUser = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (user) {
+        const salt = crypto.randomBytes(16);
+        crypto.pbkdf2(
+            req.body.password,
+            salt,
+            310000,
+            32,
+            'sha256',
+            async function (err, hashedPassword) {
+                user.password = hashedPassword;
+                user.salt = salt;
+                await user.save();
+                res.json(user);
+            }
+        );
+    } else {
+        res.sendStatus(400);
+    }
+}
+
+exports.deleteUser = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (user) {
+        await user.remove();
+        res.json({ message: 'User removed' });
+    } else {
+        res.sendStatus(400);
+    }
+}
+
